@@ -24,6 +24,16 @@ class CryptoCard extends Lit.LitElement {
       top: 15px;
     }
 
+    .flex-col {
+      align-items: flex-end;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-left: 25px;
+      min-height: 50px;
+      width: 84px;
+    }
+
     .ding-container {
       align-items: flex-start;
       display: flex;
@@ -72,6 +82,15 @@ class CryptoCard extends Lit.LitElement {
       font-size: var(--font-size-m);
       font-style: normal;
       font-weight: 400;
+    }
+
+
+    .ibmplexmono-bold-bright-gray-20px {
+      color: var(--bright-gray);
+      font-family: var(--font-family-ibm_plex_mono-bold);
+      font-size: var(--font-size-xxl);
+      font-style: normal;
+      font-weight: 700;
     }
 
     .holding-price {
