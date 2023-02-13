@@ -1,7 +1,5 @@
 'use strict';
 
-const sidebarSelectors = document.querySelectorAll('[data-component-id="sidebar"]');
-
 function Sidebar() {
   return html`
     <nav className="sidebar">
@@ -19,10 +17,4 @@ function Sidebar() {
   `
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  sidebarSelectors.forEach(el => {
-    const props = getElProps(el)
-
-    preact.render(html`<${Sidebar} ...${props} />`, el)
-  })
-})
+renderComponents(Sidebar, '[data-component-id="sidebar"]')

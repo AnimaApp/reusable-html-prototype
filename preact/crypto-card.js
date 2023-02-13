@@ -1,8 +1,5 @@
 'use strict';
 
-const cryptoCardSelectors = document.querySelectorAll('[data-component-id="crypto-card"')
-
-
 function CryptoCard({ text1, text2, text3, text4, text5 }) {
   return html`
     <article className="individual-crypto-card">
@@ -33,10 +30,4 @@ function CryptoCard({ text1, text2, text3, text4, text5 }) {
   `
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  cryptoCardSelectors.forEach(el => {
-    const props = getElProps(el)
-
-    preact.render(html`<${CryptoCard} ...${props} />`, el)
-  })
-})
+renderComponents(CryptoCard, '[data-component-id="crypto-card"')

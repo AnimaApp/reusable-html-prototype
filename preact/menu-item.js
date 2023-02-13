@@ -1,7 +1,5 @@
 'use strict';
 
-const menuItemSelectors = document.querySelectorAll('[data-component-id="menu-item"]')
-
 class MenuItem extends preact.Component {
   constructor() {
     super();
@@ -25,13 +23,6 @@ class MenuItem extends preact.Component {
   }
 }
 
+console.log(MenuItem)
 
-document.addEventListener('DOMContentLoaded', () => {
-  menuItemSelectors.forEach(el => {
-    const props = getElProps(el)
-
-    preact.render
-    const root = ReactDOM.createRoot(el);
-    root.render(e(MenuItem, props));
-  })
-})
+renderComponents(MenuItem, '[data-component-id="menu-item"]')
