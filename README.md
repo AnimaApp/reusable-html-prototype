@@ -1,5 +1,10 @@
 # RFC: Reusable Components in HTML
 
+* https://animaapp.github.io/reusable-html-prototype/lit/index.html
+* https://animaapp.github.io/reusable-html-prototype/preact/index.html
+* https://animaapp.github.io/reusable-html-prototype/react-with-jsx/index.html
+* https://animaapp.github.io/reusable-html-prototype/react-no-jsx/index.html
+
 While we can create reusable components in React, there is a need to create reusable components in non-React projects. Customers have expressed a desire to generate reusable components in their HTML projects.
 
 Reusable templates don’t exist in HTML without the use of JavaScript (in the form of web components).
