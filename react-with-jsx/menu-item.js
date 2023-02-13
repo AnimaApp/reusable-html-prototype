@@ -1,7 +1,5 @@
 'use strict';
 
-const menuItemSelectors = document.querySelectorAll('[data-component-id="menu-item"]')
-
 function MenuItem({ text }) {
   const [count, setCount] = React.useState(0)
 
@@ -16,11 +14,4 @@ function MenuItem({ text }) {
   `
 }
 
-
-document.addEventListener('DOMContentLoaded', () => {
-  menuItemSelectors.forEach(el => {
-    const props = getElProps(el)
-    const root = ReactDOM.createRoot(el);
-    root.render(e(MenuItem, props));
-  })
-})
+renderComponents(MenuItem, '[data-component-id="menu-item"]')

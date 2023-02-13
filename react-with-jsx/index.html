@@ -168,13 +168,19 @@ Get developer-friendly React or HTML/CSS code for this project at: https://proje
 
         return props;
       };
+
+      const renderComponents = (Component, selector) => {
+        const els = document.querySelectorAll(selector);
+
+        els.forEach((el) => {
+          const props = getElProps(el);
+          const root = ReactDOM.createRoot(el);
+          root.render(html`<${Component} ...${props} />`);
+        });
+      };
     </script>
-    <script src="./sidebar.js"></script>
-    <script src="./menu-item.js"></script>
-    <script src="./crypto-card.js"></script>
-    <script
-      defer
-      src="https://animaapp.s3.amazonaws.com/static/restart-btn.min.js"
-    ></script>
+    <script defer src="./sidebar.js"></script>
+    <script defer src="./menu-item.js"></script>
+    <script defer src="./crypto-card.js"></script>
   </body>
 </html>
