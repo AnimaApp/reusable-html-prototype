@@ -122,7 +122,6 @@ class CryptoCard extends Lit.LitElement {
   };
 
   render() {
-    console.log(this)
     return Lit.html`
           <article class="individual-crypto-card">
             <div class="flex-row">

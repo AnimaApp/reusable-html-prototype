@@ -23,6 +23,4 @@ class MenuItem extends preact.Component {
   }
 }
 
-console.log(MenuItem)
-
 renderComponents(MenuItem, '[data-component-id="menu-item"]')
