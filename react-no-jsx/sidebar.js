@@ -1,6 +1,5 @@
 'use strict';
 
-const sidebarSelectors = document.querySelectorAll('[data-component-id="sidebar"]');
 
 function Sidebar() {
 
@@ -43,11 +42,4 @@ function Sidebar() {
   )
 }
 
-
-document.addEventListener('DOMContentLoaded', () => {
-  sidebarSelectors.forEach(el => {
-    const props = getElProps(el)
-    const root = ReactDOM.createRoot(el);
-    root.render(e(Sidebar, props))
-  })
-})
+renderComponents(Sidebar, '[data-component-id="sidebar"]')
