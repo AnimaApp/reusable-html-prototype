@@ -9,16 +9,29 @@ Get developer-friendly React or HTML/CSS code for this project at: https://proje
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=1440, maximum-scale=1.0" />
-    <script
-      src="https://unpkg.com/react@18/umd/react.production.min.js"
-      crossorigin
-    ></script>
-    <script
-      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
-      crossorigin
-    ></script>
 
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../../style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "lit": "https://ga.jspm.io/npm:lit@2.6.1/index.js"
+        },
+        "scopes": {
+          "https://ga.jspm.io/": {
+            "@lit/reactive-element": "https://ga.jspm.io/npm:@lit/reactive-element@1.6.1/reactive-element.js",
+            "lit-element/lit-element.js": "https://ga.jspm.io/npm:lit-element@3.2.2/lit-element.js",
+            "lit-html": "https://ga.jspm.io/npm:lit-html@2.6.1/lit-html.js",
+            "lit-html/is-server.js": "https://ga.jspm.io/npm:lit-html@2.6.1/is-server.js"
+          }
+        }
+      }
+    </script>
+    <script type="module">
+      import * as Lit from 'lit'
+
+      window.Lit = Lit
+    </script>
+
   </head>
   <body style="margin: 0; background: #f3f4f6">
     <input type="hidden" id="anPageName" name="page" value="dashboard" />
@@ -40,7 +53,7 @@ Get developer-friendly React or HTML/CSS code for this project at: https://proje
           </div>
           <div class="divider" data-id="I0:404;95:1329"></div>
         </div>
-        <div data-component-id="sidebar"></div>
+        <rc-sidebar></rc-sidebar>
 
         <div class="coin-values-section" data-id="0:402">
           <div class="portfolio-section" data-id="I0:402;95:1272">
@@ -89,40 +102,37 @@ Get developer-friendly React or HTML/CSS code for this project at: https://proje
               data-id="I0:402;95:1286"
             >
               <div class="row" data-id="I0:402;95:1287">
-                <div
-                  data-component-id="crypto-card"
-                  data-component-prop-text1="BTC"
-                  data-component-prop-text2="bitcoin"
-                  data-component-prop-text3="0.0045 | $55 076.02"
-                  data-component-prop-text4="$247.84"
-                  data-component-prop-text5="-2.79%"
-                ></div>
-                <div
-                  data-component-id="crypto-card"
-                  data-component-prop-text1="ETH"
-                  data-component-prop-text2="Ethereum"
-                  data-component-prop-text3="0.1 | $4 327.37"
-                  data-component-prop-text4="$432.73"
-                  data-component-prop-text5="+3.42%"
-                ></div>
+                <rc-crypto-card
+                  text1="BTC"
+                  text2="bitcoin"
+                  text3="0.0045 | $55 076.02"
+                  text4="$247.84"
+                  text5="-2.79%"
+                >
+                </rc-crypto-card>
+                <rc-crypto-card
+                  text1="ETH"
+                  text2="Ethereum"
+                  text3="0.1 | $4 327.37"
+                  text4="$432.73"
+                  text5="+3.42%"
+                ></rc-crypto-card>
               </div>
               <div class="row" data-id="I0:402;95:1304">
-                <div
-                  data-component-id="crypto-card"
-                  data-component-prop-text1="BAT"
-                  data-component-prop-text2="Basic Attention"
-                  data-component-prop-text3="10.2 | $6,02"
-                  data-component-prop-text4="$67.84"
-                  data-component-prop-text5="-1.79%"
-                ></div>
-                <div
-                  data-component-id="crypto-card"
-                  data-component-prop-text1="UNI"
-                  data-component-prop-text2="Uniswap"
-                  data-component-prop-text3="0.0045 | $55 076.02"
-                  data-component-prop-text4="$247.84"
-                  data-component-prop-text5="-2.79%"
-                ></div>
+                <rc-crypto-card
+                  text1="BAT"
+                  text2="Basic Attention"
+                  text3="10.2 | $6,02"
+                  text4="$67.84"
+                  text5="-1.79%"
+                ></rc-crypto-card>
+                <rc-crypto-card
+                  text1="UNI"
+                  text2="Uniswap"
+                  text3="0.0045 | $55 076.02"
+                  text4="$247.84"
+                  text5="-2.79%"
+                ></rc-crypto-card>
               </div>
             </div>
           </div>
@@ -146,35 +156,6 @@ Get developer-friendly React or HTML/CSS code for this project at: https://proje
         </div>
       </div>
     </div>
-    <script>
-      const e = React.createElement;
-
-      const getElProps = (el) => {
-        const props = {};
-
-        if (el.hasAttributes()) {
-          for (const attr of el.attributes) {
-            if (attr.name.includes("data-component-prop")) {
-              const cleanedName = attr.name.replace("data-component-prop-", "");
-              props[cleanedName] = attr.value;
-            }
-          }
-        }
-
-        return props;
-      };
-
-      const renderComponents = (Component, selector) => {
-        const els = document.querySelectorAll(selector);
-
-        els.forEach(el => {
-          const props = getElProps(el)
-          const root = ReactDOM.createRoot(el);
-          root.render(e(Component, props))
-        })
-      }
-
-    </script>
     <script defer src="./sidebar.js"></script>
     <script defer src="./menu-item.js"></script>
     <script defer src="./crypto-card.js"></script>

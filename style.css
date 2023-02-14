@@ -845,6 +845,10 @@ input:focus {
   position: relative;
 }
 
+.dashboard .individual-crypto-card[data-state=pressed] {
+  background-color: red;
+}
+
 .dashboard .flex-row {
   align-items: center;
   display: flex;
