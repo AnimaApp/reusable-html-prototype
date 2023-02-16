@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 
+<!-- This code was generated using AnimaApp.com. 
+This code is a high-fidelity prototype.
+Get developer-friendly React or HTML/CSS code for this project at: https://projects.animaapp.com?utm_source=hosted-code 
+10/02/2023 14:39:18 -->
+
 <html>
   <head>
     <meta charset="utf-8" />
@@ -8,7 +13,11 @@
     <script type="importmap">
       {
         "imports": {
-          "motion": "https://ga.jspm.io/npm:motion@10.15.5/dist/main.cjs.js"
+          "framer-motion": "https://ga.jspm.io/npm:framer-motion@9.0.2/dist/es/index.mjs",
+          "htm": "https://ga.jspm.io/npm:htm@3.1.1/dist/htm.module.js",
+          "react": "https://ga.jspm.io/npm:react@18.2.0/index.js",
+          "react-dom": "https://ga.jspm.io/npm:react-dom@18.2.0/index.js",
+          "react-dom/client": "https://ga.jspm.io/npm:react-dom@18.2.0/client.js"
         },
         "scopes": {
           "https://ga.jspm.io/": {
@@ -19,27 +28,25 @@
             "@motionone/types": "https://ga.jspm.io/npm:@motionone/types@10.15.1/dist/index.cjs.js",
             "@motionone/utils": "https://ga.jspm.io/npm:@motionone/utils@10.15.1/dist/index.cjs.js",
             "hey-listen": "https://ga.jspm.io/npm:hey-listen@1.0.8/dist/index.js",
+            "scheduler": "https://ga.jspm.io/npm:scheduler@0.23.0/index.js",
             "tslib": "https://ga.jspm.io/npm:tslib@2.5.0/tslib.js"
           }
         }
       }
     </script>
-    <script
-      src="https://unpkg.com/react@18/umd/react.production.min.js"
-      crossorigin
-    ></script>
-    <script
-      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
-      crossorigin
-    ></script>
-    <script src="https://unpkg.com/htm@3.1.1/dist/htm.js" crossorigin></script>
-    <script type="module">
-      import motion from "motion";
 
-      window.Motion = motion;
-    </script>
-    <script>
-      const html = htm.bind(React.createElement);
+    <script type="module">
+      window.process = { env: { NODE_ENV: "production" } };
+
+      import htm from "htm";
+      import * as React from "react";
+      import ReactDOM from "react-dom/client";
+      import { motion } from "framer-motion";
+
+      window.React = React;
+      window.ReactDOM = ReactDOM;
+      window.motion = motion;
+      window.html = htm.bind(React.createElement);
     </script>
     <link rel="stylesheet" href="../../style.css" />
   </head>
@@ -165,34 +172,9 @@
         </div>
       </div>
     </div>
-    <script>
-      const e = React.createElement;
-
-      const getElProps = (el) => {
-        const props = {};
-
-        if (el.hasAttributes()) {
-          for (const attr of el.attributes) {
-            props[attr.name] = attr.value;
-          }
-        }
-
-        return props;
-      };
-
-      const renderComponents = (Component, selector) => {
-        const els = document.querySelectorAll(selector);
-
-        els.forEach((el) => {
-          const props = getElProps(el);
-          const root = ReactDOM.createRoot(el);
-          root.render(html`<${Component} ...${props} />`);
-        });
-      };
-    </script>
+    <script defer src="./setup.js"></script>
     <script defer src="./sidebar.js"></script>
     <script defer src="./menu-item.js"></script>
     <script defer src="./crypto-card.js"></script>
-    <script defer src="./loading-animation.js"></script>
   </body>
 </html>

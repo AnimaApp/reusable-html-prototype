@@ -1,23 +1,20 @@
-'use strict';
-
-
 function CryptoCard({ text1, text2, text3, text4, text5 }) {
-  const [isActive, setActiveState] = React.useState(false);
-  const ref = React.useRef(null)
-
-  const onmousedown = () => {
-    setActiveState(true)
-    Motion.animate(ref.current, { background: 'red' })
-  }
-
-  const onmouseup = () => {
-    setActiveState(false)
-    Motion.animate(ref.current, { background: 'white' })
+  const motionProps = {
+    whileHover: {
+      scale: 1.2
+    },
+    whileTap: {
+      background: 'red'
+    },
+    initial: { scale: 0 }, animate: { rotate: 360, scale: 1 }, transition: {
+      type: "spring",
+      stiffness: 260,
+      damping: 20
+    }
   }
 
   return html`
-    <article ref=${ref} onMouseDown=${onmousedown} onMouseUp=${onmouseup} className="individual-crypto-card"
-      data-is-active=${isActive}>
+    <${motion.article} ...${motionProps} className="individual-crypto-card">
       <div className="flex-row">
         <div className="ding-container">
           <div className="heading">
@@ -41,7 +38,7 @@ function CryptoCard({ text1, text2, text3, text4, text5 }) {
           </div>
         </div>
       </div>
-    </article>
+    </${motion.article}>
   `
 }
 

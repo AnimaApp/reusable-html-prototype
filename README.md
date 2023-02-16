@@ -97,6 +97,26 @@ Library weight: 9.5kb
 ### Lit (no Shadow DOM)
 WIP
 
+## Animation Libraries
+
+Quite soon we'll want to be able to transition between different components. While it shouldn't be too difficult swapping out components based on interactions, we'll want to animate between them.
+
+### Motion One
+
+[Motion One](https://motion.dev/) is made by, Matt Perry, the developer behind Framer Motion. This is a simple animation library that utilises the browser's Web Animations API (WAAPI) for performant animations. Motion One doesn't rely on any framework, and so can be used with Vanilla JS, React, Preact, Lit, Vue, etc.
+
+This is something to consider if we want to add animations to other frameworks.
+
+In addition to simple animtations, Motion One offers:
+
+- Timeline functionality
+- Animation playback control
+- SVG animations
+- Scrolling animations
+
+There's built-in way to transition to elements with different DOM structures. 
+### 
+
 ## Notes
 
 Because we can't do any sort of module resolution, we'll need to ensure that the order of imports is correct. This could prove tricky if we’re using components in a variety of different contexts (nested within other components, circular dependencies, used in dozens places). This is likely not a problem with Lit due to the way HTML handles unregistered custom elements.

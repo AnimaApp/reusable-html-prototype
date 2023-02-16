@@ -1,0 +1,1 @@
+Framer motion looks more like a React wrapper over Motion One

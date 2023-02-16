@@ -437,7 +437,12 @@ input:focus {
   border-radius: 16px;
 }
 
+.initial-invisible {
+  opacity: 0;
+}
+
 .dashboard .menu-item-name {
+  background: none;
   letter-spacing: 0;
   line-height: normal;
   position: relative;
@@ -845,7 +850,7 @@ input:focus {
   position: relative;
 }
 
-.dashboard .individual-crypto-card[data-state=pressed] {
+.dashboard .individual-crypto-card[data-state="pressed"] {
   background-color: red;
 }
 
