@@ -42,6 +42,7 @@ function Sidebar() {
           <${MenuItem} text="Settings" />
         </${motion.div}>
       </${motion.div}>
+      <${SpecialElement} />
     </nav>
   `
 }

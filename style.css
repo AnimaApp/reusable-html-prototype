@@ -1146,3 +1146,18 @@ input:focus {
   text-align: right;
   white-space: nowrap;
 }
+
+.layout-test {
+  border-radius: 2px;
+  padding: 8px;
+  
+  background: var(--santas-gray);
+}
+
+.layout-test.one {
+  width: 300px;
+}
+
+.layout-test.two {
+  width: 400px;
+}
